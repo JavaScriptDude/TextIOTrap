@@ -1,0 +1,7 @@
+README.md
+setup.py
+tiotrap/__init__.py
+tiotrap.egg-info/PKG-INFO
+tiotrap.egg-info/SOURCES.txt
+tiotrap.egg-info/dependency_links.txt
+tiotrap.egg-info/top_level.txt

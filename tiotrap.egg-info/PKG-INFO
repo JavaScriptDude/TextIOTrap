@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: tiotrap
+Version: 0.1
+Summary: Helper For Capturing Text IO Streams like stdout, stderr
+Home-page: https://github.com/JavaScriptDude/tiotrap
+Author: Timothy C. Quinn
+License: BSD-3-Clause
+Project-URL: Issues, https://github.com/JavaScriptDude/tiotrap/issues
+Project-URL: CI, https://github.com/JavaScriptDude/tiotrap/actions
+Project-URL: Changelog, https://github.com/JavaScriptDude/tiotrap/releases
+Description: # tiotrap
+        
+        Simple class for trapping / capturing Text IO streams like `subprocess.popen`, capturing output of library calls to stdout or stderr and a DEVNULL helper to drop Text IO streams. 
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: SunOS/Solaris
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
