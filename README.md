@@ -100,3 +100,6 @@ finally:
 print("THIS WILL PRINT")
 ```
 This DEVNULL is very simple implementation and is fully cross platform unlike someother DEVNULL implementations.
+
+
+Note:` TextIOTrap` has been set up to be compatible with the standard methods for a Text IO streams. I'll be glad to update if any edge cases are discovered.
