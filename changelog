@@ -3,3 +3,10 @@ tiotrap (0.1) unstable; urgency=low
   * Initial Release.
 
  -- Timothy C. Quinn (JavaScriptDude) <https://github.com/JavaScriptDude>  Tues, 5 Apr 2022 00:59:00 +0000
+
+
+tiotrap (0.2) unstable; urgency=low
+
+  * Update and bug fixes
+
+ -- Timothy C. Quinn (JavaScriptDude) <https://github.com/JavaScriptDude>  Tues, 5 Apr 2022 20:15:00 +0000

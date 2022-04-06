@@ -1,6 +1,6 @@
 ## tiotrap
 
-Simple class for trapping / capturing Python Text IO streams like from `subprocess.popen`, `pexpect`, `sys.stderr` and others; enabling the capture output of or dropping streams with `DEVNULL` helper. 
+Simple class for trapping / capturing Python Text IO streams like from `subprocess.popen`, `pexpect`, `sys.stderr` and others; enabling the capture output of or dropping streams with cross platform `DEVNULL` helper. 
 
 ### Installation
 
@@ -14,21 +14,21 @@ python3 -m pip install tiotrap
 This tool contains one class `TextIOTrap` and a helper `DEVNULL`.
 
 
-#### Use `TextIOTrap` to capture stdout of a chatty process using `store` option:
+### Examples
+
+#### (Ex1) Use `TextIOTrap` to capture stdout of a chatty process using `store` option:
 ```python3
 _stdout_bk = sys.stdout # Store original stdout
-tio_trap = tiotrap.TextIOTrap(store=True)
+ttrap = tiotrap.TextIOTrap(store=True)
 
 try:
-  sys.stdout = tio_trap # Map stdout to tiotrap
-  print("TEST1")
-  # call some chatty functions()
-  print("TEST2")
-  
+    sys.stdout = ttrap # Map stdout to tiotrap
+    print("TEST1")
+    # call some chatty functions()
+    print("TEST2")
+
 finally:
-  sys.stdout = _stdout_bk # Restore stdout
-  
-print(f"captured logs:\n{str(tio_trap)}\n~end~\n")
+    sys.stdout = _stdout_bk # Restore stdout
 ```
 Output of print:
 ```
@@ -39,20 +39,19 @@ TEST2
 ```
 
 
-#### Use `TextIOTrap` to capture stdout using `write_handler` option:
+#### (Ex2) Use `TextIOTrap` to capture stdout using `write_handler` option:
 ```python3
-aTrappedStdout = []
+aTrap = []
 _stdout_bk = sys.stdout
-
 try:
-  sys.stdout = tiotrap.TextIOTrap(write_handler=lambda s: aTrappedStdout.append(s))
-  print("TEST1")
-  print("TEST2")
-  
+    sys.stdout = tiotrap.TextIOTrap(write_handler=lambda s: aTrap.append(s))
+    print("TEST1")
+    print("TEST2")
+
 finally:
-  sys.stdout = _stdout_bk
-  
-print(f"aTrappedStdout = {aTrappedStdout}")
+    sys.stdout = _stdout_bk
+# print adds extra \n end so remove with rstrip()
+print(f"aTrap:\n{''.join(aTrap).rstrip()}\n~end~\n")
 ```
 
 Output of print:
@@ -63,15 +62,15 @@ You can substitute lambda with a function or method call to handle `writes` with
 
 
 
-#### Using `TextIOTrap` grab output `pexpect` call :
+#### (Ex3) Use `TextIOTrap` grab output `pexpect` call :
 ```python3
-tio_trap = tiotrap.TextIOTrap(store=True)
+ttrap = tiotrap.TextIOTrap(store=True)
 
 p = pexpect.spawn('ls -la')
-p.logfile = tio_trap
+p.logfile = ttrap
 p.expect(pexpect.EOF)
 
-print(f"ls output:\n{str(tio_trap)}\n~")
+print(f"`ls -la` cmd output:\n{ttrap.entries()}\n~")
 ```
 
 Output of print:
@@ -85,18 +84,32 @@ Other uses of `TextIOTrap`:
 * ...
 
 
+#### (Ex4) Use `TextIOTrap` grab output `pexpect` call :
+```python3
+ttrap = tiotrap.TextIOTrap(store=True)
 
-#### `DEVNULL` can be used to drop all output of a TextIO Stream
+p = pexpect.spawn('ls -la')
+p.logfile = ttrap
+p.expect(pexpect.EOF)
+
+print("ls -la` cmd output (as was written):")
+for write in ttrap:
+    print(write)
+```
+Output: Similar to Ex4
+
+
+#### (Ex5) Use `DEVNULL` to drop all output of a TextIO Stream
 ```python3
 _stdout_bk = sys.stdout
 
 try:
-  sys.stdout = tiotrap.DEVNULL
-  print("THIS WILL NOT PRINT")
-  
+    sys.stdout = tiotrap.DEVNULL
+    print("THIS WILL NOT PRINT")
+
 finally:
-  sys.stdout = _stdout_bk
-  
+    sys.stdout = _stdout_bk
+
 print("THIS WILL PRINT")
 ```
 This DEVNULL is very simple implementation and is fully cross platform unlike someother DEVNULL implementations.
