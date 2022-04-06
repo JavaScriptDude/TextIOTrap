@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "tiotrap"
+version = "0.2"
+description = "Helper For Capturing Text IO Streams like stdout, stderr"
+authors = ["Timothy C. Quinn"]
+license = "BSD-3-Clause"
+
+[tool.poetry.dependencies]
+python = ">= 3.7.1"
