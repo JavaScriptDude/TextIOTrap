@@ -1,1 +1,1 @@
-from .tiotrap import TextIOTrap, DEVNULL
+from .tiotrap import *

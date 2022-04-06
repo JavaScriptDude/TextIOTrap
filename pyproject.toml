@@ -1,9 +1,30 @@
 [tool.poetry]
 name = "tiotrap"
-version = "0.2"
+version = "0.3.3"
 description = "Helper For Capturing Text IO Streams like stdout, stderr"
-authors = ["Timothy C. Quinn"]
 license = "BSD-3-Clause"
+authors = ["Timothy C. Quinn"]
+readme = "README.md"
+homepage = "https://pypi.org/project/tiotrap/"
+repository = "https://github.com/JavaScriptDude/TextIOTrap"
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Environment :: Console',
+    'Intended Audience :: System Administrators',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: POSIX :: Linux',
+    'Operating System :: POSIX :: BSD',
+    'Operating System :: POSIX :: SunOS/Solaris',
+    'Operating System :: MacOS :: MacOS X',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Topic :: System :: Filesystems',
+    'Topic :: Utilities',
+]
+packages = [{ include = "tiotrap" }]
 
 [tool.poetry.dependencies]
 python = ">= 3.7.1"

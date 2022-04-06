@@ -1,4 +1,4 @@
-## tiotrap
+## TextIOTrap
 
 Simple class for trapping / capturing Python Text IO streams like from `subprocess.popen`, `pexpect`, `sys.stderr` and others; enabling the capture output of or dropping streams with cross platform `DEVNULL` helper. 
 
